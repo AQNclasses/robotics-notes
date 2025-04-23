@@ -62,10 +62,10 @@ Then, if we define a state vector $[y, \dot{y}]$, we can represent our discrete 
 standard linear form as
 
 ```math
-\bm{y}(k+1) = \begin{bmatrix}
+y(k+1) = \begin{bmatrix}
 0 & 1 \\
 1 & 1 
-\end{bmatrix} \bm{x} + \begin{bmatrix}
+\end{bmatrix} x + \begin{bmatrix}
 0.5 \\
 1
 \end{bmatrix} (-g).
