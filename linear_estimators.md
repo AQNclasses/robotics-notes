@@ -5,11 +5,6 @@ header-includes:
 
 # Linear Systems
 
-Estimator:
-
-- mathematical process for finding a "best estimate" of an underlying process,
-given (sensed) data
-
 Linear:
 
 - Here, we mean linear in the sense that the relationships between system state
@@ -32,8 +27,8 @@ we immediately fit the additivity property. For homogeneity, since we are
 working with a binary system, the only way we can "scale" the system is to turn
 circuits on or off. No matter which of the four possible states the system is
 in, applying a `1` to **x** will keep all circuits in their current state, `ON`
-or `OFF`, while applying a `0` will turn all circuits off. The resulting sensor
-values obey linearity, for example:
+or `OFF`, while applying a `0` will turn all circuits off (effectively, an
+`AND` operator). The resulting sensor values obey linearity:
 
 $y(0 [x1,x2]) = y([0,0]) = 0 = 0*y([x1,x2])$
 
@@ -55,15 +50,17 @@ y(t) & = \int_{t0}^t \dot{y} dt = y(t0) + (t-t0)\dot{y}(t0) - (t-t0)^2 g/2
 which, if we consider a discrete time system where $dt = t-t0$ can be scaled to
 1, we can write as
 
-\begin{align\*}
+\begin{equation}
+\begin{align}
 \dot{y}(k+1) & = \dot{y}(k) - g \\
 y(k+1) & = y(k) + \dot{y}(k) - g/2
-\end{align\*}.
+\end{align}
+\begin{equation}.
 
 Then, if we define a state vector $[y, \dot{y}]$, we can represent our discrete system in
 standard linear form as
 
-$$
+\begin{equation}
 \bm{y}(k+1) = \begin{bmatrix}
 0 & 1 \\
 1 & 1 
@@ -71,9 +68,18 @@ $$
 0.5 \\
 1
 \end{bmatrix} (-g)
-$$.
+\end{equation}.
 
 Note this is similar to the equation for a 2D line, $y = mx + b$, and lines are
 linear (left to the reader to prove).
 
 # Linear Estimators
+
+Estimator:
+
+- mathematical process for finding a "best estimate" of an underlying process,
+given (sensed) data
+
+## Linear Least Squares
+
+Given some data,
