@@ -1,11 +1,3 @@
----
-header-includes:
-  - |
-      ```
-      \usepackage{amsmath}
-      ```
----
-
 # Linear Systems
 
 Linear:
@@ -33,9 +25,13 @@ in, applying a `1` to **x** will keep all circuits in their current state, `ON`
 or `OFF`, while applying a `0` will turn all circuits off (effectively, an
 `AND` operator). The resulting sensor values obey linearity:
 
-$y(0 [x1,x2]) = y([0,0]) = 0 = 0*y([x1,x2])$
+```math
+y(0 [x1,x2]) = y([0,0]) = 0 = 0*y([x1,x2])
+```
 
+```math
 $y(1 [x1, x2]) = y([x1, x2]) = 1* y([x1, x2])$
+```
 
 **Example 2:** A falling object.
 
@@ -44,34 +40,36 @@ force $g$. Let $y(t)$ be the height of the object at time $t$.
 
 We can define the system of differential equations
 
-\begin{align\*}
+$$
+\begin{align*}
 \ddot{y}(t) & = -g \\
 \dot{y}(t) & = \int_{t0}^t \ddot{y} dt = \dot{y}(t0) - (t-t0)g \\
 y(t) & = \int_{t0}^t \dot{y} dt = y(t0) + (t-t0)\dot{y}(t0) - (t-t0)^2 g/2
-\end{align\*}
+\end{align*}
+$$
 
 which, if we consider a discrete time system where $dt = t-t0$ can be scaled to
 1, we can write as
 
-\begin{equation}
+```math
 \begin{align}
 \dot{y}(k+1) & = \dot{y}(k) - g \\
 y(k+1) & = y(k) + \dot{y}(k) - g/2
 \end{align}
-\begin{equation}.
+```
 
 Then, if we define a state vector $[y, \dot{y}]$, we can represent our discrete system in
 standard linear form as
 
-\begin{equation}
+```math
 \bm{y}(k+1) = \begin{bmatrix}
 0 & 1 \\
 1 & 1 
 \end{bmatrix} \bm{x} + \begin{bmatrix}
 0.5 \\
 1
-\end{bmatrix} (-g)
-\end{equation}.
+\end{bmatrix} (-g).
+```
 
 Note this is similar to the equation for a 2D line, $y = mx + b$, and lines are
 linear (left to the reader to prove).
