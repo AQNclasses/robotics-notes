@@ -30,7 +30,7 @@ y(0 [x1,x2]) = y([0,0]) = 0 = 0*y([x1,x2])
 ```
 
 ```math
-$y(1 [x1, x2]) = y([x1, x2]) = 1* y([x1, x2])$
+y(1 [x1, x2]) = y([x1, x2]) = 1* y([x1, x2])
 ```
 
 **Example 2:** A falling object.
