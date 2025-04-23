@@ -1,6 +1,9 @@
 ---
 header-includes:
-  - \usepackage{amsmath}
+  - |
+      ```
+      \usepackage{amsmath}
+      ```
 ---
 
 # Linear Systems
