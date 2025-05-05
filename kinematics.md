@@ -15,16 +15,14 @@ What is "Forward Kinematics"?
 **Kinematics**: a branch of *classical mechanics* that describes motion of
 bodies without considering forces. AKA "the geometry of motion"
 
-. . .
 
 **Forward kinematics**: a specific problem in robotics. Given the individual state of each
 joint of the robot (in a local frame), what is the position of a
 given point on the robot in the global frame?
 
 
-. . .
 
-![](images/ur5_example.jpg){width=600px class="center"}\
+![](images/ur5_example.jpg)
 
 
 Assumptions
@@ -37,14 +35,14 @@ Assumptions
 
 . . .
 
-![](images/1DOFjoints.jpg){width=520px class="center"}\
+![](images/1DOFjoints.jpg)
 
 
 Review on Screw Motions
 =======================
 
 
-![](images/screw.jpg){width=600px class="center"}\
+![](images/screw.jpg)
 
 
 Review on Screw Motions
@@ -112,13 +110,13 @@ Actual Form of Matrix Exponential
 =================================
 
 
-![](images/expansion.jpg){width=600px class="center"}\
+![](images/expansion.jpg)
 
 . . .
 
-![](images/explicit1.jpg){width=700px class="center"}\
+![](images/explicit1.jpg)
 
-![](images/explicit2.jpg){width=400px class="center"}\
+![](images/explicit2.jpg)
 
 
 Modelling Robot Joints as Screw Motions
@@ -144,7 +142,7 @@ case 1:
 </div>
 <div class="column" width="30%">
 
-![](images/revolute.gif){width=200px class="center"}\
+![](images/revolute.gif)
 
 </div>
 </div>
@@ -169,7 +167,7 @@ case 2:
 </div>
 <div class="column" width="30%">
 
-![](images/prismatic.gif){width=300px class="center"}\
+![](images/prismatic.gif)
 
 </div>
 </div>
@@ -177,7 +175,7 @@ case 2:
 Product of Exponentials Approach
 ===============================
 
-![](images/3Rchain.jpg){width=700px class="center"}\
+![](images/3Rchain.jpg)
 
 
 **Key Idea:** Model each joint as applying a screw motion to all links beyond
@@ -224,14 +222,14 @@ $$
 Visualizing the Formula
 =======================
 
-![](images/PoE_visual.jpg){width=700px class="center"}\
+![](images/PoE_visual.jpg)
 
 
 Example 1
 =========
 
 
-![](images/3Rchain.jpg){width=700px class="center"}\
+![](images/3Rchain.jpg)
 
 
 
@@ -294,7 +292,7 @@ $$
 Example 2
 =========
 
-![](images/example2.jpg){width=600px class="center"}\
+![](images/example2.jpg)
 
 Example 2
 =========
@@ -331,5 +329,5 @@ Next Time
 > - What if my robot isn't a kinematic chain??
 
 
-![](images/Pantograph_animation.gif){width=400px class="center"}\
+![](images/Pantograph_animation.gif)
 
