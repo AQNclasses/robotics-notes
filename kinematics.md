@@ -51,9 +51,9 @@ Review on Screw Motions
 
 Definition 3.24 from Modern Robotics:  a **screw axis** $\mathcal{S}$ is written as
 
-\begin{equation}
+$$
 \mathcal{S} = \begin{bmatrix} \omega \\ v \end{bmatrix} \in \mathbb{R}^6
-\end{equation}
+$$
 
 where either
 
@@ -74,12 +74,12 @@ Screw Motions as Matrix Exponential
 
 The screw axis $\mathcal{S}$ can be expressed in matrix form as
 
-\begin{equation}
+$$
 [\mathcal{S}_i] = \begin{bmatrix}
 [\omega_i] & v \\
 0 & 0
 \end{bmatrix} \in se(3)
-\end{equation}
+$$
 
 where $[ \ldots ]$ is the skew symmetric form.
 
@@ -87,9 +87,9 @@ where $[ \ldots ]$ is the skew symmetric form.
 
 To express a **screw motion** given a screw axis, we use the matrix exponential
 
-\begin{equation}
+$$
 e^{\left[\mathcal{S}\right] \theta} \in SE(3)
-\end{equation}
+$$
 
 
 But why?!?
@@ -215,10 +215,10 @@ For each motion of a joint, define the screw motion.
 This form composes nicely through multiplication, giving us the **Product of
 Exponentials (PoE)** formula!
 
-\begin{equation}
+$$
 T(\theta) = e^{[\mathcal{S_1}]\theta_1} \ldots
 e^{[\mathcal{S_{n-1}}]\theta_{n-1}} e^{[\mathcal{S_{n}}]\theta_{n}} M
-\end{equation}
+$$
 
 Visualizing the Formula
 =======================
@@ -237,14 +237,14 @@ Example 1
 Example 1
 =========
 
-\begin{equation}
+$$
 M = \begin{bmatrix}
 1 & 0 & 0 & L_1 + L_2 + L_3 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1 \\
 \end{bmatrix}
-\end{equation}
+$$
 
 
 All axes:
@@ -295,24 +295,21 @@ Example 2
 
 First find $M$:
 
-\begin{equation}
+$$
 M = \begin{bmatrix}
 0 & 0 & 1 & L_1 \\
 0 & 1 & 0 & 0 \\
 -1 & 0 & 1 & -L_2 \\
 0 & 0 & 0 & 1 \\
 \end{bmatrix}
-\end{equation
+$$
 
-. . .
 
 For joint 1: $\omega_1 = (0,0,1) \qquad v_1 = (0,0,0)$
 
-. . .
 
 For joint 2: $\omega_2 = (0, -1, 0) \qquad q_2 = (L_1, 0, 0) \qquad v_2 = (0, 0, -L_1)$
 
-. . .
 
 For joint 3: $\omega_3 = (1, 0, 0) \qquad q_3 = (0, 0, -L_2) \qquad v_3 = (0, -L_2, 0)$
 
