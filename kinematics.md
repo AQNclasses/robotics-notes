@@ -270,20 +270,20 @@ Example 1
 
 Form $e^{[\mathcal{S_i}] \theta}$ for each joint:
 
-\begin{equation}
+$$
 e^{[\mathcal{S_i}] \theta} = \begin{bmatrix} 
 e^{[\omega_i] \theta} & (I \theta + (1 - \cos(\theta) [\omega_i] + (\theta -
 \sin(\theta) [\omega_i]^2) v_i \\
 0 & 1
 \end{bmatrix}
-\end{equation}
+$$
 
 And compose with $M$
 
-\begin{equation}
+$$
 T(\theta) = e^{[\mathcal{S_1}]\theta_1}
 e^{[\mathcal{S_{2}}]\theta_{2}} e^{[\mathcal{S_{3}}]\theta_{3}} M
-\end{equation
+$$
 
 Example 2
 =========
