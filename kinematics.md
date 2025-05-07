@@ -158,6 +158,17 @@ e^{[\omega]\theta} & (I \theta + (1-\cos \theta) [\omega\] + (\theta -
 \end{bmatrix}
 $$
 
+Note that we still need to find the closed-form expression for
+$e^{[\omega]\theta}$, the matrix exponential of the skew-symmetric form of
+$\omega$. Thankfully, this is known for skew-symmetric matrices in general. If
+we let $x = ||\theta \omega|| = \theta \sqrt{\omega_x^2 + \omega_y^2 + \omega_z^2}$, then
+we have
+
+$$
+e^{[\omega]\theta} = I + \frac{\sin x}{x} \theta [\omega] + \frac{1-\cos x}{x^2}
+(\theta [\omega])^2
+$$
+
 **Prismatic Joints**
 
 In the case of prismatic joints (with only linear motion), we have $\omega=0$ a
