@@ -105,8 +105,8 @@ $$
 The screw axis $\mathcal{S}$ can be expressed in matrix form as
 
 $$
-[\mathcal{S}_i] = \begin{bmatrix}
-[\omega_i] & v \\
+[\mathcal{S}] = \begin{bmatrix}
+[\omega] & v \\
 0 & 0
 \end{bmatrix} \in se(3)
 $$
@@ -114,16 +114,16 @@ $$
 where $[ \ldots ]$ is the skew symmetric form. For example:
 
 $$
-[omega] =
+[\omega] =
 \begin{bmatrix}
-\omega_1 \\
-\omega_2 \\
-\omega_3
+\omega_x \\
+\omega_y \\
+\omega_z
 \end{bmatrix} =
 \begin{bmatrix}
-0 & -\omega_3 & \omega_2 \\
-\omega_3 & 0 &  -\omega_1 \\
--\omega_2 & \omega_1 & 0
+0 & -\omega_z & \omega_y \\
+\omega_z & 0 &  -\omega_x \\
+-\omega_y & \omega_x & 0
 \end{bmatrix}.
 $$
 
