@@ -19,15 +19,13 @@ joint of the robot (in a local frame), what is the position of a
 given point on the robot in the global frame?
 
 
-Assumptions
-=====================
+## Assumptions
 
 - Our robot is a kinematic chain, made of rigid *links* connected by movable *joints*
 - No branches or loops (will discuss later)
 - All joints have one degree of freedom and are *revolute* or *prismatic*
 
-Screw Motions
-=======================
+# Screw Motions
 
 
 Definition 3.24 from Modern Robotics:  a **screw axis** $\mathcal{S}$ is written as
@@ -49,8 +47,7 @@ where for our purposes of revolute and prismatic joints, we have either
 
 
 
-Modelling Robot Joints as Screw Motions
-======
+## Modelling Robot Joints as Screw Motions
 
 **Revolute Joints:**
 
@@ -60,8 +57,7 @@ Modelling Robot Joints as Screw Motions
        rotation about the screw axis)**.
    - So for revolute joints, $\omega$ is axis of rotation and $v = -\omega \times q$
 
-Modelling Robot Joints as Screw Motions
-======
+## Modelling Robot Joints as Screw Motions
 
 **Prismatic Joints**
 
@@ -70,8 +66,7 @@ Modelling Robot Joints as Screw Motions
         translation along the axis defined by $v$.
    - **prismatic joints** defined by axis of movement $v$
 
-Product of Exponentials Approach
-===============================
+## Product of Exponentials Approach
 
 <img src="images/3Rchain.jpg" width=30>
 
@@ -80,34 +75,29 @@ Product of Exponentials Approach
 it.
 
 
-Product of Exponentials Approach
-===============================
+## Product of Exponentials Approach
 
 
 Let each joint $i$ have an associated parameter $\theta_i$ that defines its
 configuration (rotation angle for revolute joints, translation amount for
 prismatic).
 
-. . .
 
 Initialization:
 
-> - Choose a fixed, global base frame $\{s\}$
-> - Choose an "end effector" frame $\{b\}$ fixed to the robot
-> - Put all joints in "zero position"
-> - Let $M \in SE(3)$ be the configuration of $\{b\}$ in the $\{s\}$ frame when
+- Choose a fixed, global base frame $\{s\}$
+- Choose an "end effector" frame $\{b\}$ fixed to the robot
+- Put all joints in "zero position"
+- Let $M \in SE(3)$ be the configuration of $\{b\}$ in the $\{s\}$ frame when
 robot is in zero position
 
-Product of Exponentials Formula
-===============================
+## Product of Exponentials Formula
 
 For each joint $i$, define the screw axis.
 
-. . .
 
 For each motion of a joint, define the screw motion.
 
-. . .
 
 This form composes nicely through multiplication, giving us the **Product of
 Exponentials (PoE)** formula!
@@ -117,8 +107,7 @@ T(\theta) = e^{[\mathcal{S_1}]\theta_1} \ldots
 e^{[\mathcal{S_{n-1}}]\theta_{n-1}} e^{[\mathcal{S_{n}}]\theta_{n}} M
 $$
 
-Screw Motions as Matrix Exponential
-===================================
+## Screw Motions as Matrix Exponential
 
 The screw axis $\mathcal{S}$ can be expressed in matrix form as
 
@@ -141,8 +130,7 @@ $$
 which is a homogenous transformation and can be expressed in matrix form.
 
 
-Form of Matrix Exponential
-=================================
+## Form of Matrix Exponential
 
 - Actually computing the matrix exponential is not straight forward. The formal definition is given by the power series, $e^X = \sum_{k=0}^\infty
 \frac{1}{k!} X^k$.
@@ -176,22 +164,18 @@ I & v\theta \\
 $$
 
 
-Visualizing the Formula
-=======================
+## Visualizing the Formula
 
 ![](images/PoE_visual.jpg)
 
 
-Example 1
-=========
+## Example 1
 
 
 ![](images/3Rchain.jpg)
 
 
 
-Example 1
-=========
 
 $$
 M = \begin{bmatrix}
@@ -221,8 +205,6 @@ $v_3 = (0,-(L_1 + L_2),0)$
 
 
 
-Example 1
-=========
 
 Form $e^{[\mathcal{S_i}] \theta}$ for each joint:
 
@@ -241,13 +223,10 @@ T(\theta) = e^{[\mathcal{S_1}]\theta_1}
 e^{[\mathcal{S_{2}}]\theta_{2}} e^{[\mathcal{S_{3}}]\theta_{3}} M
 $$
 
-Example 2
-=========
+## Example 2
 
 ![](images/example2.jpg)
 
-Example 2
-=========
 
 First find $M$:
 
@@ -268,15 +247,4 @@ For joint 2: $\omega_2 = (0, -1, 0) \qquad q_2 = (L_1, 0, 0) \qquad v_2 = (0, 0,
 
 
 For joint 3: $\omega_3 = (1, 0, 0) \qquad q_3 = (0, 0, -L_2) \qquad v_3 = (0, -L_2, 0)$
-
-Next Time
-=========
-
-> - Product of exponentials in the end-effector frame
-> - Modelling robots in the **Universal Robot Description Format**
-> - Different kinds of joints
-> - What if my robot isn't a kinematic chain??
-
-
-![](images/Pantograph_animation.gif){width=400px class="center"}\
 
