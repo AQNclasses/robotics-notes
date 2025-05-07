@@ -7,8 +7,7 @@ date: October 1, 2025
 ...
 
 
-What is "Forward Kinematics"?
-=============================
+## What is "Forward Kinematics"?
 
 
 **Kinematics**: a branch of *classical mechanics* that describes motion of
@@ -23,13 +22,9 @@ given point on the robot in the global frame?
 Assumptions
 =====================
 
-> - Our robot is a kinematic chain, made of rigid *links* connected by movable
-*joints*
-> - No branches or loops (will discuss later)
-> - All joints have one degree of freedom and are *revolute* or *prismatic*
-
-
-
+- Our robot is a kinematic chain, made of rigid *links* connected by movable *joints*
+- No branches or loops (will discuss later)
+- All joints have one degree of freedom and are *revolute* or *prismatic*
 
 Screw Motions
 =======================
@@ -52,6 +47,75 @@ where for our purposes of revolute and prismatic joints, we have either
    -  where the pitch of the screw is infinite and the motion is a translation along the axis defined by $v$.
 
 
+
+
+Modelling Robot Joints as Screw Motions
+======
+
+**Revolute Joints:**
+
+- $\lvert \lvert \omega \rvert \rvert = 1$
+   - where $v = -\omega \times q + h\omega$, where $q$ is a point on
+       the axis of the screw and $h$ is the pitch of the screw **($h=0$ for a pure
+       rotation about the screw axis)**.
+   - So for revolute joints, $\omega$ is axis of rotation and $v = -\omega \times q$
+
+Modelling Robot Joints as Screw Motions
+======
+
+**Prismatic Joints**
+
+- $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
+   -  where the pitch of the screw is infinite and the motion is a
+        translation along the axis defined by $v$.
+   - **prismatic joints** defined by axis of movement $v$
+
+Product of Exponentials Approach
+===============================
+
+<img src="images/3Rchain.jpg" width=30>
+
+
+**Key Idea:** Model each joint as applying a screw motion to all links beyond
+it.
+
+
+Product of Exponentials Approach
+===============================
+
+
+Let each joint $i$ have an associated parameter $\theta_i$ that defines its
+configuration (rotation angle for revolute joints, translation amount for
+prismatic).
+
+. . .
+
+Initialization:
+
+> - Choose a fixed, global base frame $\{s\}$
+> - Choose an "end effector" frame $\{b\}$ fixed to the robot
+> - Put all joints in "zero position"
+> - Let $M \in SE(3)$ be the configuration of $\{b\}$ in the $\{s\}$ frame when
+robot is in zero position
+
+Product of Exponentials Formula
+===============================
+
+For each joint $i$, define the screw axis.
+
+. . .
+
+For each motion of a joint, define the screw motion.
+
+. . .
+
+This form composes nicely through multiplication, giving us the **Product of
+Exponentials (PoE)** formula!
+
+$$
+T(\theta) = e^{[\mathcal{S_1}]\theta_1} \ldots
+e^{[\mathcal{S_{n-1}}]\theta_{n-1}} e^{[\mathcal{S_{n}}]\theta_{n}} M
+$$
 
 Screw Motions as Matrix Exponential
 ===================================
@@ -111,79 +175,6 @@ I & v\theta \\
 \end{bmatrix}
 $$
 
-
-Modelling Robot Joints as Screw Motions
-======
-
-**Revolute Joints:**
-
-
-- $\lvert \lvert \omega \rvert \rvert = 1$
-   - where $v = -\omega \times q + h\omega$, where $q$ is a point on
-       the axis of the screw and $h$ is the pitch of the screw **($h=0$ for a pure
-       rotation about the screw axis)**.
-   - So for revolute joints, $\omega$ is axis of rotation and $v = -\omega \times q$
-
-
-Modelling Robot Joints as Screw Motions
-======
-
-**Prismatic Joints**
-
-
-
-- $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
-   -  where the pitch of the screw is infinite and the motion is a
-        translation along the axis defined by $v$.
-   - **prismatic joints** defined by axis of movement $v$
-
-
-Product of Exponentials Approach
-===============================
-
-<img src="images/3Rchain.jpg" width=30>
-
-
-**Key Idea:** Model each joint as applying a screw motion to all links beyond
-it.
-
-
-Product of Exponentials Approach
-===============================
-
-
-Let each joint $i$ have an associated parameter $\theta_i$ that defines its
-configuration (rotation angle for revolute joints, translation amount for
-prismatic).
-
-. . .
-
-Initialization:
-
-> - Choose a fixed, global base frame $\{s\}$
-> - Choose an "end effector" frame $\{b\}$ fixed to the robot
-> - Put all joints in "zero position"
-> - Let $M \in SE(3)$ be the configuration of $\{b\}$ in the $\{s\}$ frame when
-robot is in zero position
-
-Product of Exponentials Formula
-===============================
-
-For each joint $i$, define the screw axis.
-
-. . .
-
-For each motion of a joint, define the screw motion.
-
-. . .
-
-This form composes nicely through multiplication, giving us the **Product of
-Exponentials (PoE)** formula!
-
-$$
-T(\theta) = e^{[\mathcal{S_1}]\theta_1} \ldots
-e^{[\mathcal{S_{n-1}}]\theta_{n-1}} e^{[\mathcal{S_{n}}]\theta_{n}} M
-$$
 
 Visualizing the Formula
 =======================
