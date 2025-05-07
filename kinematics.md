@@ -76,20 +76,8 @@ $$
 
 which is a homogenous transformation and can be expressed in matrix form.
 
-But why?!?
-==========
 
-> - Outside the scope of this course...
-> - "The exponential map is a map from the Lie algebra of a Lie group to the group
-itself"
-
-
-You can think of the Lie algebra as related to a tangent space, so a screw
-vector gives us a description of instantaneous tangent motion, and the
-exponential function "integrates" this motion over a displacement $\theta$.
-
-
- Form of Matrix Exponential
+Form of Matrix Exponential
 =================================
 
 - Actually computing the matrix exponential is not straight forward. The formal definition is given by the power series, $e^X = \sum_{k=0}^\infty
@@ -127,60 +115,33 @@ $$
 Modelling Robot Joints as Screw Motions
 ======
 
-$\mathcal{S} = \begin{bmatrix} \omega \\ v \end{bmatrix} \in \mathbb{R}^6$
-
-case 1:
-
-<div class="row">
-<div class="column" width="70%">
+**Revolute Joints:**
 
 
-> - $\lvert \lvert \omega \rvert \rvert = 1$
->    - where $v = -\omega \times q + h\omega$, where $q$ is a point on
+- $\lvert \lvert \omega \rvert \rvert = 1$
+   - where $v = -\omega \times q + h\omega$, where $q$ is a point on
        the axis of the screw and $h$ is the pitch of the screw **($h=0$ for a pure
        rotation about the screw axis)**.
->    - So for revolute joints, $\omega$ is axis of rotation and $v = -\omega
-       \times q$
+   - So for revolute joints, $\omega$ is axis of rotation and $v = -\omega \times q$
 
 
-
-</div>
-<div class="column" width="30%">
-
-![](images/revolute.gif)
-
-</div>
-</div>
-
-       
 Modelling Robot Joints as Screw Motions
 ======
 
+**Prismatic Joints**
 
-$\mathcal{S} = \begin{bmatrix} \omega \\ v \end{bmatrix} \in \mathbb{R}^6$
 
-case 2:
 
-<div class="row">
-<div class="column" width="70%">
-
-> - $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
->    -  where the pitch of the screw is infinite and the motion is a
+- $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
+   -  where the pitch of the screw is infinite and the motion is a
         translation along the axis defined by $v$.
->    - **prismatic joints** defined by axis of movement $v$
+   - **prismatic joints** defined by axis of movement $v$
 
-</div>
-<div class="column" width="30%">
-
-![](images/prismatic.gif)
-
-</div>
-</div>
 
 Product of Exponentials Approach
 ===============================
 
-![](images/3Rchain.jpg)
+<img src="images/3Rchain.jpg" width=30>
 
 
 **Key Idea:** Model each joint as applying a screw motion to all links beyond
