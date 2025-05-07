@@ -173,13 +173,13 @@ $$
 
 ## Visualizing the Formula
 
-![](images/PoE_visual.jpg)
+<img src="images/PoE_visual.jpg" width=600px>
 
 
 ## Example 1
 
 
-<img src="images/3Rchain.jpg" width=300px>
+<img src="images/3Rchain.jpg" width=600px>
 
 
 
