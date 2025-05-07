@@ -38,13 +38,11 @@ where for our purposes of revolute and prismatic joints, we have either
 
 
 - $\lvert \lvert \omega \rvert \rvert = 1$
-   - where $v = -\omega \times q + h\omega$, where $q$ is a point on
+   - where $\omega$ is the axis of rotation of the screw, $v = -\omega \times q + h\omega$, where $q$ is a point on
        the axis of the screw and $h$ is the pitch of the screw ($h=0$ for a pure
        rotation about the screw axis). OR
 - $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
    -  where the pitch of the screw is infinite and the motion is a translation along the axis defined by $v$.
-
-
 
 
 ## Modelling Robot Joints as Screw Motions
@@ -52,19 +50,16 @@ where for our purposes of revolute and prismatic joints, we have either
 **Revolute Joints:**
 
 - $\lvert \lvert \omega \rvert \rvert = 1$
-   - where $v = -\omega \times q + h\omega$, where $q$ is a point on
-       the axis of the screw and $h$ is the pitch of the screw **($h=0$ for a pure
-       rotation about the screw axis)**.
-   - So for revolute joints, $\omega$ is axis of rotation and $v = -\omega \times q$
+   - where $\omega$ is axis of rotation and $v = -\omega \times q$
+   - $q$ is a point on the axis of the screw (can be any point, anywhere along axis)
 
 ## Modelling Robot Joints as Screw Motions
 
 **Prismatic Joints**
 
 - $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
-   -  where the pitch of the screw is infinite and the motion is a
-        translation along the axis defined by $v$.
-   - **prismatic joints** defined by axis of movement $v$
+   - $v$ is *axis of movement* : vector along which the linear actuator moves
+   - pitch of the screw is infinite and the motion is a translation along the axis defined by $v$.
 
 ## Product of Exponentials Intuition
 
@@ -83,18 +78,18 @@ prismatic).
 
 Initialization:
 
-- Choose a fixed, global base frame $\{s\}$
-- Choose an "end effector" frame $\{b\}$ fixed to the robot
+- Choose a fixed, global base frame $\{B\}$
+- Choose an "end effector" frame $\{E\}$ fixed to the robot
 - Put all joints in "zero position"
-- Let $M \in SE(3)$ be the configuration of $\{b\}$ in the $\{s\}$ frame when
+- Let $M \in SE(3)$ be the configuration of $\{E\}$ in the $\{B\}$ frame when
 robot is in zero position
 
 ## Product of Exponentials Formula
 
-For each joint $i$, define the screw axis.
+For each joint $i$, define the screw axis (in base frame at zero position).
 
 
-For each motion of a joint, define the screw motion.
+Then, for each joint we can compute the screw motion (in base frame).
 
 
 This form composes nicely through multiplication, giving us the **Product of
@@ -111,12 +106,12 @@ The screw axis $\mathcal{S}$ can be expressed in matrix form as
 
 $$
 [\mathcal{S}_i] = \begin{bmatrix}
-[\bm{\omega}_i] & v \\
+[\omega_i] & v \\
 0 & 0
 \end{bmatrix} \in se(3)
 $$
 
-where $[ \ldots ]$ is the skew symmetric form. For example, $[\bm{omega}] =
+where $[ \ldots ]$ is the skew symmetric form. For example, $[omega] =
 \begin{bmatrix}
 \omega_1 \\
 \omega_2 \\
