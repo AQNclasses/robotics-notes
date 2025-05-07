@@ -179,7 +179,7 @@ $$
 ## Example 1
 
 
-<img src="images/3Rchain.jpg" width=100>
+<img src="images/3Rchain.jpg" width=300px>
 
 
 
