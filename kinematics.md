@@ -147,7 +147,7 @@ closed-form expression for each type of joint.
 
 **Revolute Joints:**
 
-Let $S = (\omega, v)$ be a screw axis. If $\Vert \omega \| = 1$ (the condition that
+Let $S = (\omega, v)$ be a screw axis. If $\Vert \omega \Vert = 1$ (the condition that
 revolute joints meet), then we have
 
 $$
