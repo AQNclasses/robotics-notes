@@ -1,10 +1,9 @@
 ---
 title: Forward Kinematics
 author: |
-    | Alli Nilles 
+    | Alex Nilles
     | Modern Robotics Chapter 4
 date: October 1, 2025
-aspectratio: 169
 ...
 
 
@@ -21,10 +20,6 @@ joint of the robot (in a local frame), what is the position of a
 given point on the robot in the global frame?
 
 
-
-![](images/ur5_example.jpg)
-
-
 Assumptions
 =====================
 
@@ -33,19 +28,10 @@ Assumptions
 > - No branches or loops (will discuss later)
 > - All joints have one degree of freedom and are *revolute* or *prismatic*
 
-. . .
-
-![](images/1DOFjoints.jpg)
 
 
-Review on Screw Motions
-=======================
 
-
-![](images/screw.jpg)
-
-
-Review on Screw Motions
+Screw Motions
 =======================
 
 
@@ -83,7 +69,6 @@ $$
 
 where $[ \ldots ]$ is the skew symmetric form.
 
-. . .
 
 To express a **screw motion** given a screw axis, we use the matrix exponential
 
@@ -99,13 +84,11 @@ But why?!?
 > - "The exponential map is a map from the Lie algebra of a Lie group to the group
 itself"
 
-. . .
 
 You can think of the Lie algebra as related to a tangent space, so a screw
 vector gives us a description of instantaneous tangent motion, and the
 exponential function "integrates" this motion over a displacement $\theta$.
 
-. . .
 
 
 Actual Form of Matrix Exponential
