@@ -94,9 +94,24 @@ exponential function "integrates" this motion over a displacement $\theta$.
 Actual Form of Matrix Exponential
 =================================
 
+- Actually computing the matrix exponential is not straight forward. The formal definition is given by the power series, $e^X = \sum_{k=0}^\infty
+\frac{1}{k!} X^k$.
 
-![](images/expansion.jpg)
+- Luckily, our screw motion has structure, leading us to find a finite
+closed-form expression for each type of joint.
 
+**Revolute Joints:**
+
+Let $S = (\omega, v)$ be a screw axis. If $||\omega|| = 1$ (the condition that
+revolute joints meet), then we have
+
+$$
+e^{[S]\theta} = \begin{bmatrix}
+e^{[\omega]\theta} & (I \theta + (1-\cos(\theta) [\omega\] + (\theta -
+\sin(\theta) ) [\omega]^2) v \\
+0 & 1
+\end{bmatrix}
+$$
 
 ![](images/explicit1.jpg)
 
