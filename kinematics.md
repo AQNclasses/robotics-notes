@@ -111,7 +111,10 @@ $$
 \end{bmatrix} \in se(3)
 $$
 
-where $[ \ldots ]$ is the skew symmetric form. For example, $[omega] =
+where $[ \ldots ]$ is the skew symmetric form. For example:
+
+$$
+[omega] =
 \begin{bmatrix}
 \omega_1 \\
 \omega_2 \\
@@ -121,7 +124,8 @@ where $[ \ldots ]$ is the skew symmetric form. For example, $[omega] =
 0 & -\omega_3 & \omega_2 \\
 \omega_3 & 0 &  -\omega_1 \\
 -\omega_2 & \omega_1 & 0
-\end{bmatrix}$.
+\end{bmatrix}.
+$$
 
 
 To express a **screw motion** given a screw axis, we use the matrix exponential
