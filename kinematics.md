@@ -66,9 +66,7 @@ where for our purposes of revolute and prismatic joints, we have either
         translation along the axis defined by $v$.
    - **prismatic joints** defined by axis of movement $v$
 
-## Product of Exponentials Approach
-
-<img src="images/3Rchain.jpg" width=30>
+## Product of Exponentials Intuition
 
 
 **Key Idea:** Model each joint as applying a screw motion to all links beyond
@@ -113,12 +111,22 @@ The screw axis $\mathcal{S}$ can be expressed in matrix form as
 
 $$
 [\mathcal{S}_i] = \begin{bmatrix}
-[\omega_i] & v \\
+[\bm{\omega}_i] & v \\
 0 & 0
 \end{bmatrix} \in se(3)
 $$
 
-where $[ \ldots ]$ is the skew symmetric form.
+where $[ \ldots ]$ is the skew symmetric form. For example, $[\bm{omega}] =
+\begin{bmatrix}
+\omega_1 \\
+\omega_2 \\
+\omega_3
+\end{bmatrix} =
+\begin{bmatrix}
+0 & -\omega_3 & \omega_2 \\
+\omega_3 & 0 &  -\omega_1 \\
+-\omega_2 & \omega_1 & 0
+\end{bmatrix}$.
 
 
 To express a **screw motion** given a screw axis, we use the matrix exponential
@@ -172,8 +180,7 @@ $$
 ## Example 1
 
 
-![](images/3Rchain.jpg)
-
+<img src="images/3Rchain.jpg" width=100>
 
 
 
