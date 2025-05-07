@@ -41,17 +41,15 @@ $$
 \mathcal{S} = \begin{bmatrix} \omega \\ v \end{bmatrix} \in \mathbb{R}^6
 $$
 
-where either
+where for our purposes of revolute and prismatic joints, we have either
 
 
-> - $\lvert \lvert \omega \rvert \rvert = 1$
->    - where $v = -\omega \times q + h\omega$, where $q$ is a point on
+- $\lvert \lvert \omega \rvert \rvert = 1$
+   - where $v = -\omega \times q + h\omega$, where $q$ is a point on
        the axis of the screw and $h$ is the pitch of the screw ($h=0$ for a pure
        rotation about the screw axis). OR
-       
-> - $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
->    -  where the pitch of the screw is infinite and the motion is a
-translation along the axis defined by $v$.
+- $\lvert \lvert \omega \rvert \rvert = 0$ and $\lvert \lvert v \rvert \rvert = 1$
+   -  where the pitch of the screw is infinite and the motion is a translation along the axis defined by $v$.
 
 
 
@@ -76,6 +74,7 @@ $$
 e^{\left[\mathcal{S}\right] \theta} \in SE(3)
 $$
 
+which is a homogenous transformation and can be expressed in matrix form.
 
 But why?!?
 ==========
@@ -90,8 +89,7 @@ vector gives us a description of instantaneous tangent motion, and the
 exponential function "integrates" this motion over a displacement $\theta$.
 
 
-
-Actual Form of Matrix Exponential
+ Form of Matrix Exponential
 =================================
 
 - Actually computing the matrix exponential is not straight forward. The formal definition is given by the power series, $e^X = \sum_{k=0}^\infty
@@ -107,15 +105,23 @@ revolute joints meet), then we have
 
 $$
 e^{[S]\theta} = \begin{bmatrix}
-e^{[\omega]\theta} & (I \theta + (1-\cos(\theta) [\omega\] + (\theta -
-\sin(\theta) ) [\omega]^2) v \\
+e^{[\omega]\theta} & (I \theta + (1-\cos \theta) [\omega\] + (\theta -
+\sin \theta ) [\omega]^2) v \\
 0 & 1
 \end{bmatrix}
 $$
 
-![](images/explicit1.jpg)
+**Prismatic Joints**
 
-![](images/explicit2.jpg)
+In the case of prismatic joints (with only linear motion), we have $\omega=0$ a
+nd $||v|| = 1$, and our screw motion simplifies to
+
+$$
+e^{[S]\theta} = \begin{bmatrix}
+I & v\theta \\
+0 & 1
+\end{bmatrix}
+$$
 
 
 Modelling Robot Joints as Screw Motions
