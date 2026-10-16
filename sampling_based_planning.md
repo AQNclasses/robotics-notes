@@ -48,7 +48,7 @@ On top of being dense, we also want our sequence of sampled points to minimize
 space $X$ with measure function $\rho$ as
 
 ```math
-\delta(P) = \max_{x \in X} \left{ \min_{p \in P} \left{ \rho(x,p) \right} \right}.
+\delta(P) = \max_{x \in X} \left\{ \min_{p \in P} \left\{ \rho(x,p) \right\} \right\}.
 ```
 
 Intuitively, this finds the part of the metric space that is furthest from any
@@ -73,8 +73,8 @@ the size of subsets is measured with function $\mu$. Then, given a point sequenc
 $C$ containing $k$ samples, discrepancy is defined as
 
 ```math
-D(P,\mathcal{R}) = \max_{R \in \mathcal{R}} \left{ \left| \frac{\left| P \intersect R \right|}{k} -
-\frac{\mu(R)}{\mu{C} \right| \right},
+D(P,\mathcal{R}) = \max_{R \in \mathcal{R}} \left\{ \left| \frac{\left| P \intersect R \right|}{k} -
+\frac{\mu(R)}{\mu{C} \right| \right\},
 ```
 
 where $|P \intersect R|$ is the number of points in $P \intersect R$.
