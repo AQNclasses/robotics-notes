@@ -73,8 +73,7 @@ the size of subsets is measured with function $\mu$. Then, given a point sequenc
 $C$ containing $k$ samples, discrepancy is defined as
 
 ```math
-D(P,\mathcal{R}) = \max_{R \in \mathcal{R}} \left\{ \left| \frac{\left| P \intersect R \right|}{k} -
-\frac{\mu(R)}{\mu{C} \right| \right\},
+D(P,\mathcal{R}) = \max_{R \in \mathcal{R}} \left\{ \left| \frac{\left| P \cap R \right|}{k} - \frac{\mu(R)}{\mu{C} \right| \right\},
 ```
 
-where $|P \intersect R|$ is the number of points in $P \intersect R$.
+where $|P \cap R|$ is the number of points in $P \cap R$.
