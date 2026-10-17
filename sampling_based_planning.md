@@ -102,7 +102,7 @@ RRT(start, goal):
     while True:
         a = Sample()
         q = Nearest(T, a)
-        if a and q can be connected:
+        if a and q can be connected: # check for collisions, update a if needed
             add q and a as new nodes
             add edge (q,a)
         if a is at goal:
