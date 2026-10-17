@@ -73,7 +73,51 @@ the size of subsets is measured with function $\mu$. Then, given a point sequenc
 $C$ containing $k$ samples, discrepancy is defined as
 
 ```math
-D(P,\mathcal{R}) = \max_{R \in \mathcal{R}} \left\{ \left| \frac{\left| P \cap R \right|}{k} - \frac{\mu(R)}{\mu{C} \right| \right\},
+D(P,\mathcal{R}) = \max_{R \in \mathcal{R}} \left\{ \left| \frac{\left| P \cap R \right| }{k} - \frac{\mu(R)}{\mu(C)} \right| \right\},
 ```
 
 where $|P \cap R|$ is the number of points in $P \cap R$.
+
+If you take one thing away from all this, it's that creating good sampling
+schemes on arbitrary manifolds is hard. This is related to sampling theory for
+numerical integration, where you want to generate well-behaved discretizations
+of possibly complex and high-dimensional equations. It is also related to
+sampling theory in machine learning, where often we are learning discriminators
+in high-dimensional spaces and want to know how to sample efficiently to promote
+fast learning.
+
+# Sample-Based Motion Planning
+
+There are two models when talking about sampling-based planning algorithms. You
+can follow the *single-query model*, where we are given a single start and goal
+configuration pair and just need to find one path from start to goal. Or, you
+can consider the *multiple-query model*, where we want to create a *roadmap*
+that we can use for multiple planning queries in the sample configuration space.
+
+## Rapidly Exploring Random Trees (RRTs)
+
+```
+RRT(start, goal):
+    T.init(start) # initialize tree with start as root node
+    while True:
+        a = Sample()
+        q = Nearest(T, a)
+        if a and q can be connected:
+            add q and a as new nodes
+            add edge (q,a)
+        if a is at goal:
+            return
+
+```
+
+Options: forward search, backward search, bidirectional search, multi-tree
+search
+
+## Probabilistic Roadmaps (PRMs)
+
+Same idea, but generate tree first before knowing start/goal. Often,
+pre-processing is used to bias sample generation toward parts of the free space.
+This is to avoid the narrow hallway problem, where statistically it's difficult
+to generate samples within narrow corridors of free space. Can use
+skeletonization or other approaches here. There is also often a post-processing
+step to clean up the roadmap and increase efficiency.
