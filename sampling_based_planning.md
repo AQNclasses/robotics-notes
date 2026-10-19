@@ -121,3 +121,12 @@ This is to avoid the narrow hallway problem, where statistically it's difficult
 to generate samples within narrow corridors of free space. Can use
 skeletonization or other approaches here. There is also often a post-processing
 step to clean up the roadmap and increase efficiency.
+
+## Other variations
+
+- RRT*: probabilistically optimal motion planning
+- kinodynamic constraints
+- project combining both RRT* and kinodynamic constraints:
+[youtube](https://www.youtube.com/watch?v=p3nZHnOWhrg)
+- many variations for improving performance, adding heuristics, etc. Example:
+[youtube](https://www.youtube.com/watch?v=d7dX5MvDYTc)
